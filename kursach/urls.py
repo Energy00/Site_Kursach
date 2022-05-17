@@ -7,5 +7,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('roofs/', include('roof_order.urls')),
     # path('', include('roof_pages.urls')),
-    # path('register/', include('roof_user.urls'))
+    path('user/', include('roof_user.urls'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

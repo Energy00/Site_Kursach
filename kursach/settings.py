@@ -38,9 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'phonenumber_field',
     'roof_user',
     'roof_order',
-    'roof_pages'
+    'roof_pages',
 ]
 
 MIDDLEWARE = [
