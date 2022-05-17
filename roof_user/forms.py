@@ -1,19 +1,16 @@
 from django import forms
-from django.contrib.auth import password_validation
-from django.core.exceptions import ValidationError
-
 from .models import *
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from phonenumber_field.formfields import PhoneNumberField
 from phonenumber_field.widgets import PhoneNumberPrefixWidget
 
 
-class UserForm(UserCreationForm):
+class UserRegForm(UserCreationForm):
     field_order = ["email", "password1", "password2", "username"]
     email = forms.CharField(label='Электронная почта',
                             strip=False,
-                            widget=forms.EmailInput(attrs={'placeholder': 'Введите свой электронный адрес'}),
+                            widget=forms.EmailInput(attrs={'placeholder': 'Введите свою электронную почту'}),
                             error_messages={'required': 'Обязательно для заполнения'})
 
     username = forms.CharField(label='Ваше имя',
@@ -23,7 +20,8 @@ class UserForm(UserCreationForm):
 
     password1 = forms.CharField(label='Пароль',
                                 strip=False,
-                                widget=forms.PasswordInput(attrs={"autocomplete": "new-password", 'placeholder': 'Введите пароль'}),
+                                widget=forms.PasswordInput(
+                                    attrs={"autocomplete": "new-password", 'placeholder': 'Придумайте пароль'}),
                                 error_messages={'required': 'Обязательно для заполнения'})
 
     password2 = forms.CharField(label='Повторите пароль',
@@ -36,7 +34,7 @@ class UserForm(UserCreationForm):
         fields = ("email", "password1", "password2", "username")
 
     def save(self, commit=True):
-        user = super(UserForm, self).save(commit=False)
+        user = super(UserRegForm, self).save(commit=False)
         user.email = self.cleaned_data['email']
         if commit:
             user.save()
@@ -55,3 +53,15 @@ class PhoneNumberForm(forms.ModelForm):
 
         fields = ['phone_number']
         exclude = ['user', 'is_blocked']
+
+
+class UserAuthForm(forms.Form):
+    field_order = ['username', 'password']
+    username = forms.CharField(label='Электронная почта',
+                               strip=False,
+                               widget=forms.EmailInput(attrs={'placeholder': 'Введите свою электронную почту'}))
+
+    password = forms.CharField(label='Пароль',
+                               strip=False,
+                               widget=forms.PasswordInput(
+                                   attrs={"autocomplete": "new-password", 'placeholder': 'Введите пароль'}))

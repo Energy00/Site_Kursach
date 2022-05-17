@@ -1,6 +1,7 @@
+from django.contrib.auth.forms import AuthenticationForm
 from django.shortcuts import render, redirect
 from django.views.generic import View
-from django.contrib.auth import login
+from django.contrib.auth import login, authenticate
 from .forms import *
 
 
@@ -10,7 +11,7 @@ from .forms import *
 class RegisterView(View):
 
     def get(self, request):
-        form = UserForm()
+        form = UserRegForm()
         phone_form = PhoneNumberForm()
         context = {
             'form': form,
@@ -19,7 +20,7 @@ class RegisterView(View):
         return render(request, 'roof_user/register.html', context=context)
 
     def post(self, request):
-        form = UserForm(request.POST)
+        form = UserRegForm(request.POST)
         phone_form = PhoneNumberForm(request.POST)
         if form.is_valid():
             user = form.save(commit=True)
@@ -29,10 +30,31 @@ class RegisterView(View):
                     phone = phone_form.save(commit=False)
                     phone.user = user_id
                     phone.save()
-                    return redirect('home')
+                    return redirect('login')
         context = {
             'form': form,
             'phone_form': phone_form
             }
         return render(request, 'roof_user/register.html', context=context)
 
+
+class LoginForm(View):
+
+    def get(self, request):
+        form = UserAuthForm()
+        return render(request, 'roof_user/login.html', context={'form': form})
+
+    def post(self, request):
+        form = UserAuthForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(email=username, password=password)
+            print(user)
+            if user is not None:
+                login(request, user)
+                return redirect('home')
+            else:
+                return render(request, 'roof_user/login.html', context={'form': form})
+        else:
+            return render(request, 'roof_user/login.html', context={'form': form})
