@@ -1,7 +1,7 @@
 from django.contrib.auth.forms import AuthenticationForm
 from django.shortcuts import render, redirect
 from django.views.generic import View
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 from .forms import *
 
 
@@ -58,3 +58,8 @@ class LoginForm(View):
                 return render(request, 'roof_user/login.html', context={'form': form})
         else:
             return render(request, 'roof_user/login.html', context={'form': form})
+
+
+def User_logout(request):
+    logout(request)
+    return redirect('home')
