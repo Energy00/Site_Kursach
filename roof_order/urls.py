@@ -1,5 +1,6 @@
 from django.urls import path, re_path
+from .views import *
 
 urlpatterns = [
-    # path('', name='roof_order')
+    path('', OrderView.as_view(), name='order')
 ]
