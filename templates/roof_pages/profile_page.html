@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block head %}
+    <style>
+        table tr, td,th
+            {
+                border:1px solid;
+                align-content: center;
+            }
+        table
+            {
+                border-collapse: collapse;
+            }
+    </style>
+{% endblock %}
+{% block content %}
+    {% if user.is_authenticated %}
+        <h1 align="center">Ваши заказы</h1>
+        <table border="1" width="50%" border-width="thin" align="center">
+            <tr><th>Размер</th><th>Адрес</th><th>Материал</th><th>Фото объекта</th></tr>
+            {% for order in orders %}
+                <tr>
+                    <td align="center">{{ order.size }}</td>
+                    <td align="center">{{ order.address }}</td>
+                    <td align="center">{{ order.materials }}</td>
+                    {% if order.photo_roof %}
+                        <td align="center" width="25%"><img src="{{ order.photo_roof.url }}" alt="Фото товара" width="300"></td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <a class="text" href="{% url 'login' %}">Вход</a>
+    {% endif %}
+{% endblock %}
