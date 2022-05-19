@@ -10,18 +10,16 @@ class UserRegForm(UserCreationForm):
     field_order = ["email", "password1", "password2", "username"]
     email = forms.CharField(label='Электронная почта',
                             strip=False,
-                            widget=forms.EmailInput(attrs={'placeholder': 'Введите свою электронную почту'}),
                             error_messages={'required': 'Обязательно для заполнения'})
 
     username = forms.CharField(label='Ваше имя',
                                strip=False,
-                               widget=forms.TextInput(attrs={'placeholder': 'Введите свое имя'}),
                                error_messages={'required': 'Обязательно для заполнения'})
 
     password1 = forms.CharField(label='Пароль',
                                 strip=False,
                                 widget=forms.PasswordInput(
-                                    attrs={"autocomplete": "new-password", 'placeholder': 'Придумайте пароль'}),
+                                    attrs={"autocomplete": "new-password"}),
                                 error_messages={'required': 'Обязательно для заполнения'})
 
     password2 = forms.CharField(label='Повторите пароль',
@@ -43,9 +41,7 @@ class UserRegForm(UserCreationForm):
 
 class PhoneNumberForm(forms.ModelForm):
     phone_number = PhoneNumberField(label='Номер телефона',
-                                    widget=PhoneNumberPrefixWidget(initial='RU',
-                                                                   attrs={
-                                                                       'placeholder': 'Введите номер телефона'}),
+                                    initial='+7',
                                     strip=False)
 
     class Meta:
