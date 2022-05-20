@@ -47,7 +47,7 @@ class start_page(View):
                 login(request, user)
                 return redirect('home')
             else:
-                return render(request, 'roof_user/login.html', context=context)
+                return render(request, 'roof_pages/start_page.html', context=context)
         else:
             return render(request, 'roof_pages/start_page.html', context=context)
 

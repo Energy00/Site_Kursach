@@ -41,6 +41,7 @@
     max-width: 800px;
     padding: 30px;
     position: relative;
+    border-radius: 15px;
 }
 
 .pop {
@@ -60,6 +61,7 @@
     margin: 0 auto 0 10px;
     width: 200px;
     float: right;
+    border-radius: 7px;
 }
 
 .popup_content form input:focus{
