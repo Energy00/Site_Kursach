@@ -52,12 +52,12 @@ class PhoneNumberForm(forms.ModelForm):
 
 
 class UserAuthForm(forms.Form):
-    field_order = ['username', 'password']
-    username = forms.CharField(label='Электронная почта',
-                               strip=False,
-                               widget=forms.EmailInput(attrs={'placeholder': 'Введите свою электронную почту'}))
+    field_order = ['username_log', 'password_log']
+    username_log = forms.CharField(label='Электронная почта',
+                                   strip=False,
+                                   widget=forms.EmailInput())
 
-    password = forms.CharField(label='Пароль',
-                               strip=False,
-                               widget=forms.PasswordInput(
-                                   attrs={"autocomplete": "new-password", 'placeholder': 'Введите пароль'}))
+    password_log = forms.CharField(label='Пароль',
+                                   strip=False,
+                                   widget=forms.PasswordInput(
+                                       attrs={"autocomplete": "new-password"}))

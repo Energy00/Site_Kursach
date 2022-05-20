@@ -18,6 +18,13 @@
     background-color: rgba(0, 0, 0, .7);
     top: 0;
     left: 0;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.popup.open {
+    opacity: 1;
+    visibility: visible;
 }
 
 .popup_body {
