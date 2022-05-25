@@ -2,9 +2,9 @@
 
 
 {% block content %}
-    <div class = 'container py-5'>
+    <div class = 'container_roof_form'>
         <h2>Форма заказа</h2>
-        <form method = "post" action = "{% url 'order' %}" enctype="multipart/form-data">
+        <form method = "post" action = "{% url 'order' %}" enctype="multipart/form-data" class="form_order">
             {% csrf_token %}
 
             {{ form.as_p}}

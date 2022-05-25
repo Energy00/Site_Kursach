@@ -1,5 +1,58 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
-    Something about us
+    <div class="container">
+        <h1>
+            Рады приветствовать вас на сайте EzRoof!
+        </h1>
+        <p>
+            Мы находимся в г.Красноярск. Наша задача - исполнить желание каждого клиента в приобретении качественного
+            продукта, который будет служить ему долгое время.
+        </p>
+        <p>
+            Для нас важен любой заказ! Поэтому будем рады помочь вам при возникновении любых вопросов.
+        </p>
+        <p>
+            Если что-то пойдет не так - мы разберемся за вас.
+        </p>
+    </div>
+    <div class="container_about">
+        <h2 class="benefits__title">
+            Наши преимушества
+        </h2>
+        <div class="row benefits ">
+            <div class="col-md-1">
+                <img src="{% static 'img/premium-icon-quality-control-5430584.png' %}" alt="" class="benefits__img">
+            </div>
+            <div class="col-md-3">
+                <h3>Качество</h3>
+                <p class="">
+                    Производство продукции тщательно отслеживается и контролируется.
+                </p>
+            </div>
+            <div class="col-md-1">
+                <img src="{% static 'img/premium-icon-training-3496049.png' %}" alt="" class="benefits__img">
+            </div>
+            <div class="col-md-3">
+                <h3>
+                    Опытный персонал
+                </h3>
+                <p>
+                    Каждый сотрудник проходит обучение и только после допускается к работе.
+                </p>
+            </div>
+            <div class="col-md-1">
+                <img src="{% static 'img/free-icon-contract-2666523.png' %}" alt="" class="benefits__img">
+            </div>
+            <div class="col-md-3">
+                <h3>
+                    Гарантия
+                </h3>
+                <p>
+                    Предоставляю официальную гарантию по договору от 3 до 5 лет!
+                </p>
+            </div>
+        </div>
+    </div>
 {% endblock %}

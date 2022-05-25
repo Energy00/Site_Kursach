@@ -1,17 +1,6 @@
 {% extends 'base.html' %}
-{% block head %}
-    <style>
-        table tr, td,th
-            {
-                border:1px solid;
-                align-content: center;
-            }
-        table
-            {
-                border-collapse: collapse;
-            }
-    </style>
-{% endblock %}
+
+
 {% block content %}
     {% if user.is_authenticated %}
         <h1 align="center">Ваши заказы</h1>
