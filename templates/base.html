@@ -57,9 +57,53 @@
         </div>
       </div>
     </nav>
+
+
+
     {% block content %}
         Если ты видишь это, то что-то не так
     {% endblock %}
+
+        {#popups#}
+    <div id='register' class="popup">
+        <div class="popup_body">
+            <div class="popup_content">
+                <p class="pop">Форма регистрации</p>
+                <a href="{% url 'home' %}" class="popup_close close-popup">&#10006</a>
+                <form method = "post" action="{% url 'register' %}" id="form-reg" novalidate>
+                    {% csrf_token %}
+                    {{ reg_form.as_p }}
+                    {{ phone_form.as_p }}
+                    <tr>
+                        <td colspan="1">
+                            <button type="submit" class="popup_button">Зарегистрироваться</button>
+                        </td>
+                    </tr>
+                </form>
+                <div class="Sing_text">У вас уже имеется аккаунт? <a class="popup-link" id='#login' href="#">Войти</a></div>
+            </div>
+        </div>
+    </div>
+    <div id='login' class="popup">
+        <div class="popup_body">
+            <div class="popup_content">
+                <p class="pop">Форма входа</p>
+                <a href="{% url 'home' %}" class="popup_close close-popup">&#10006</a>
+                <form method = "post" action="{% url 'login' %}" id="form-login" novalidate>
+                    <div class="alert alert-danger d-none" role="alert"></div>
+                    {% csrf_token %}
+                    {{ log_form.as_p }}
+                    <tr>
+                        <td colspan="1">
+                            <button type="submit" class="popup_button">Войти</button>
+                        </td>
+                    </tr>
+                </form>
+                <div class="Sing_text">У вас нет своего аккаунта?<a class="popup-link" id='#register' href="#">Зарегистрироваться</a></div>
+            </div>
+        </div>
+    </div>
+
     <div class="container">
         <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
             <div class="col-md-4 d-flex align-items-center">
@@ -72,7 +116,8 @@
     </div>
 
     <script src="{% static 'js/slick.min.js' %}"></script>
-    <script src="{% static 'js/script.js' %}"></script>
+    <script src="{% static 'js/functions.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
     <script src = "{% static 'js/java.js' %}"></script>
 </body>
 </html>

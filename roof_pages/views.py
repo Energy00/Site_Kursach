@@ -9,47 +9,9 @@ from roof_order.models import *
 
 class start_page(View):
     def get(self, request):
-        reg_form = UserRegForm()
-        phone_form = PhoneNumberForm()
-        log_form = UserAuthForm()
-        context = {
-            'reg_form': reg_form,
-            'phone_form': phone_form,
-            'log_form': log_form
-        }
-        return render(request, 'roof_pages/start_page.html', context=context)
+        return render(request, 'roof_pages/start_page.html')
 
-    def post(self, request):
-        phone_form = PhoneNumberForm(request.POST)
-        reg_form = UserRegForm(request.POST)
-        log_form = UserAuthForm(request.POST)
-        context = {
-            'reg_form': reg_form,
-            'phone_form': phone_form,
-            'log_form': log_form
-            }
-        if reg_form.is_valid():
-            user = reg_form.save(commit=True)
-            if user.id is not None:
-                user_id = User.objects.get(pk=user.id)
-                if phone_form.is_valid():
-                    phone = phone_form.save(commit=False)
-                    phone.user = user_id
-                    phone.save()
-                    return redirect('login')
-                else:
-                    return render(request, 'roof_pages/start_page.html', context=context)
-        elif log_form.is_valid():
-            username = log_form.cleaned_data.get('username_log')
-            password = log_form.cleaned_data.get('password_log')
-            user = authenticate(email=username, password=password)
-            if user is not None:
-                login(request, user)
-                return redirect('home')
-            else:
-                return render(request, 'roof_pages/start_page.html', context=context)
-        else:
-            return render(request, 'roof_pages/start_page.html', context=context)
+    # def post(self, request):
 
 
 def about_page(request):

@@ -33,43 +33,4 @@
 {#        </form>#}
 {#    </div>#}
 
-    {#popups#}
-    <div id='register' class="popup">
-        <div class="popup_body">
-            <div class="popup_content">
-                <p class="pop">Форма регистрации</p>
-                <a href="{% url 'home' %}" class="popup_close close-popup">&#10006</a>
-                <form method = "post" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    {{ reg_form.as_p }}
-                    {{ phone_form.as_p }}
-                    <tr>
-                        <td colspan="1">
-                            <button type="submit" class="popup_button">Зарегистрироваться</button>
-                        </td>
-                    </tr>
-                </form>
-                <div class="Sing_text">У вас уже имеется аккаунт? <a class="popup-link" id='#login' href="#">Войти</a></div>
-            </div>
-        </div>
-    </div>
-    <div id='login' class="popup">
-        <div class="popup_body">
-            <div class="popup_content">
-                <p class="pop">Форма входа</p>
-                <a href="{% url 'home' %}" class="popup_close close-popup">&#10006</a>
-                <form method = "post" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    {{ log_form.as_p }}
-                    <tr>
-                        <td colspan="1">
-                            <button type="submit" class="popup_button">Войти</button>
-                        </td>
-                    </tr>
-                </form>
-                <div class="Sing_text">У вас нет своего аккаунта?<a class="popup-link" id='#register' href="#">Зарегистрироваться</a></div>
-            </div>
-        </div>
-    </div>
-
 {% endblock %}

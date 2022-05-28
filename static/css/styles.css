@@ -150,20 +150,19 @@
     margin-left: 100px;
 }
 
-.container_roof_form form input {
-
-}
-
 .container_roof_form form input:focus{
     outline: none;
 }
+
 table tr, td,th {
     border:1px solid;
     align-content: center;
 }
+
 table {
     border-collapse: collapse;
 }
+
 table th {
     text-align: center;
 }
@@ -185,6 +184,11 @@ table th {
 .benefits{
     border: 3px solid #f7cfa3;
     padding-top: 30px;
+}
+
+.invalid-feedback{
+    color: red;
+    font-size: 12px;
 }
 
 
