@@ -42,7 +42,8 @@ class UserRegForm(UserCreationForm):
 class PhoneNumberForm(forms.ModelForm):
     phone_number = PhoneNumberField(label='Номер телефона',
                                     initial='+7',
-                                    strip=False)
+                                    strip=False,
+                                    region='RU')
 
     class Meta:
         model = User_phones

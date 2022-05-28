@@ -11,27 +11,25 @@ class User_register(View):
     def post(self, request):
         phone_form = PhoneNumberForm(request.POST)
         reg_form = UserRegForm(request.POST)
-        if reg_form.is_valid():
+        if reg_form.is_valid() and phone_form.is_valid():
             user = reg_form.save(commit=True)
+            print(user.id)
             if user.id is not None:
                 user_id = User.objects.get(pk=user.id)
-                if phone_form.is_valid():
-                    phone = phone_form.save(commit=False)
-                    phone.user = user_id
-                    phone.save()
-                    login(request, user, backend='roof_user.backends.EmailBackend')
-                    data = {
-                        'email': reg_form.cleaned_data['email'],
-                        'username': reg_form.cleaned_data['username'],
-                        'password1': reg_form.cleaned_data['password1'],
-                        'password2': reg_form.cleaned_data['password2'],
-                        'phone': str(phone.phone_number)
-                    }
-                    return JsonResponse({'success': data})
-                else:
-                    return JsonResponse({'errors': phone_form.errors})
+                phone = phone_form.save(commit=False)
+                phone.user = user_id
+                phone.save()
+                login(request, user, backend='roof_user.backends.EmailBackend')
+                data = {
+                    'email': reg_form.cleaned_data['email'],
+                    'username': reg_form.cleaned_data['username'],
+                    'password1': reg_form.cleaned_data['password1'],
+                    'password2': reg_form.cleaned_data['password2'],
+                    'phone': str(phone.phone_number)
+                }
+                return JsonResponse({'success': data})
         else:
-            return JsonResponse({'errors': reg_form.errors})
+            return JsonResponse({'errors_reg': reg_form.errors, 'errors_num': phone_form.errors})
 
 
 class User_login(View):
@@ -46,9 +44,9 @@ class User_login(View):
                 login(request, user)
                 return JsonResponse(data={})
             else:
-                return JsonResponse(data={'error': 'Неверный логин или пароль'}, status=404)
+                return JsonResponse(data={'error': 'Неверная почта или пароль'}, status=404)
         else:
-            return JsonResponse(data={'error': 'Введите логин и пароль'}, status=404)
+            return JsonResponse(data={'error': 'Введите почту и пароль'}, status=404)
 
 
 def User_logout(request):

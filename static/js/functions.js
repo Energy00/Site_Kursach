@@ -33,7 +33,8 @@ function reg_form() {
             data: $(this).serialize(),
             dataType: 'json',
             success: (data) => {
-                if ('errors' in data) {
+                console.log(data)
+                if ('errors_reg' in data || 'errors_num' in data) {
                     $('#form-reg' + 'input').each((index, el) => {
                         $(el).removeClass('is-invalid').addClass('is-valid')
                     })
@@ -43,17 +44,30 @@ function reg_form() {
                     $(el).remove()
                 })
 
-                for (let key in data['errors']) {
+                for (let key in data['errors_reg']) {
                     $('#form-reg').find('input[name="' + key + '"]').removeClass('is-valid').addClass('is-invalid')
 
                     $('#form-reg').find('input[name="' + key + '"]').after(() => {
                         let result = ''
-                        for(let k in data['errors'][key]) {
-                            result += data['errors'][key][k] + '<br>'
+                        for(let k in data['errors_reg'][key]) {
+                            result += data['errors_reg'][key][k] + '<br>'
                         }
-                        return '<div class="invalid-feedback">' + data['errors'][key] + '</div>'
+                        return '<div class="invalid-feedback">' + data['errors_reg'][key] + '</div>'
                     })
                 }
+
+                for (let key in data['errors_num']) {
+                    $('#form-reg').find('input[name="' + key + '"]').removeClass('is-valid').addClass('is-invalid')
+
+                    $('#form-reg').find('input[name="' + key + '"]').after(() => {
+                        let result = ''
+                        for(let k in data['errors_num'][key]) {
+                            result += data['errors_num'][key][k] + '<br>'
+                        }
+                        return '<div class="invalid-feedback">' + data['errors_num'][key] + '</div>'
+                    })
+                }
+
                 if ('success' in data) {
                     window.location.href = '/'
                 }

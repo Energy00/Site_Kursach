@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic import View
 from django.contrib.auth import login, authenticate, logout
-from roof_user.forms import *
+from .forms import *
 from roof_order.models import *
 
 # Create your views here.
@@ -9,9 +9,16 @@ from roof_order.models import *
 
 class start_page(View):
     def get(self, request):
-        return render(request, 'roof_pages/start_page.html')
+        form = FastUserForm()
+        return render(request, 'roof_pages/start_page.html', context= {'form': form})
 
-    # def post(self, request):
+    def post(self, request):
+        form = FastUserForm(request.POST)
+        if form.is_valid():
+            form.save(commit=True)
+            redirect('home')
+        else:
+            return render(request, 'roof_pages/start_page.html', context={'form': form})
 
 
 def about_page(request):
