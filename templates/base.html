@@ -9,56 +9,56 @@
     <link href="{% static 'css/popup.css' %}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat+Alternates&family=Tapestry&display=swap" rel="stylesheet">
     <link href="{% static 'css/styles.css' %}" rel="stylesheet">
-    <title>Кровля крыш</title>
+    {% block styles %} {% endblock%}
+    <title>Кровля крыш </title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg" style="background-color: #f7cfa3">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="{% url 'home' %}">
-            <img src="{% static 'img/logo.svg' %}" alt="Лого"><text>EzRoof</text>
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                  <a class="nav-link" href="#">О материалах</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="{% url 'about' %}">О нас</a>
-              </li>
-          </ul>
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li class="nav-item dropdown">
-                    {% if user.is_authenticated %}
-                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"><img
-                                src="{% static 'img/person-circle.svg' %}" alt=""><text>{{ user.username }}</text></a>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    {% else %}
-                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"><img
-                                src="{% static 'img/person-circle.svg' %}" alt=""><text>Guest</text></a>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    {% endif %}
-                    {% if user.is_authenticated %}
-                        <li><a class="dropdown-item" href="{% url 'profile' %}">Профиль</a></li>
-                        <li><a class="dropdown-item" href="{% url 'order' %}">Сделать заказ</a></li>
-                      <li><hr></li>
-                      <li><a class="dropdown-item" href="{% url 'logout' %}">Выйти</a></li>
-                  {% else %}
-                      <li><a class="dropdown-item popup-link" id='#login' href="{% url 'home' %}">Вход</a></li>
-                      <li><hr></li>
-                      <li><a class="dropdown-item popup-link" href="{% url 'home' %}" id='#register'>Регистрация</a></li>
-                  {% endif %}
-              </ul>
-              </ul>
-            </li>
-          </ul>
+    <nav class="navbar navbar-dark navbar-expand-lg" style="background-color: rgba(46, 46, 46, 0.9)">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'home' %}">
+                <img src="{% static 'img/logo.svg' %}" alt="Лого"><text>&nbspEzRoof</text>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">О материалах</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'about' %}">&nbspО нас</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 checkthis">
+                    <li class="nav-item dropdown">
+                        {% if user.is_authenticated %}
+                            <a class="nav-link dropdown-toggle dp-nav" data-bs-toggle="dropdown" href="#"><img
+                                    src="{% static 'img/person-circle.svg' %}" alt=""><text>&nbsp{{ user.username }}</text>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        {% else %}
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"><img
+                                    src="{% static 'img/person-circle.svg' %}" alt=""><text>Guest</text>
+                            </a>
+                        {% endif %}
+                        {% if user.is_authenticated %}
+                            <li><a class="dropdown-item" href="{% url 'profile' %}">Профиль</a></li>
+                            <li><a class="dropdown-item" href="{% url 'order' %}">Сделать заказ</a></li>
+                            <li><hr></li>
+                            <li><a class="dropdown-item" href="{% url 'logout' %}">Выйти</a></li>
+                        {% else %}
+                            <li><a class="dropdown-item popup-link" id='#login' href="{% url 'home' %}">Вход</a></li>
+                            <li><hr></li>
+                            <li><a class="dropdown-item popup-link" href="{% url 'home' %}" id='#register'>Регистрация</a></li>
+                        {% endif %}
+                        </ul>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
-      </div>
     </nav>
-
-
 
     {% block content %}
         Если ты видишь это, то что-то не так
@@ -104,16 +104,16 @@
         </div>
     </div>
 
-    <div class="container">
-        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-            <div class="col-md-4 d-flex align-items-center">
-                <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-                    <img src="{% static 'img/logo.svg' %}" width="30px">
-                </a>
-                <span class="mb-3 mb-md-0 text-muted">© 2022 EzRoof, Inc</span>
-            </div>
-        </footer>
-    </div>
+{#    <div class="container">#}
+{#        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">#}
+{#            <div class="col-md-4 d-flex align-items-center">#}
+{#                <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">#}
+{#                    <img src="{% static 'img/logo.svg' %}" width="30px" alt="logo">#}
+{#                </a>#}
+{#                <span class="mb-3 mb-md-0 text-muted">© 2022 EzRoof, Inc</span>#}
+{#            </div>#}
+{#        </footer>#}
+{#    </div>#}
 
     <script src="{% static 'js/slick.min.js' %}"></script>
     <script src="{% static 'js/functions.js' %}"></script>

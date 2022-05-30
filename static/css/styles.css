@@ -1,22 +1,58 @@
+.navbar {
+    --bs-navbar-nav-link-padding-x: 3rem;
+}
+.navbar-brand {
+    margin-left: 5%;
+}
 .navbar-brand img {
-    width: 60px;
+    width: 100%;
+    max-width: 80px;
 }
 
 .navbar-brand text {
-    font-family: 'Tapestry', cursive;
-    font-size: 30px;
+    font-family: 'Lucida Calligraphy', cursive;
+    font-size: 28px;
+    color: #ffffff;
 }
 
-.nav-link img {
-    width: 33px;
-    height: auto;
-    margin-right: 10px;
+.dp-nav img {
+    width: 100%;
+    max-width: 45px;
+    margin-right: 5%;
 }
 
-.nav-link text {
-    font-family: 'Bebas Neue', cursive;;
+.nav-link {
+    align-items: center;
+    font-family: 'Inter', ui-serif;
+    font-size: 18px;
+    color: #ffffff;
+}
+
+.dp-nav{
     font-size: 20px;
+    color: #ffffff;
+    margin-right: auto;
 }
+
+.ms-auto {
+    margin-right: 1%;
+}
+
+.mx-auto a{
+    align-content: center;
+}
+
+.dp-nav::after{
+    display: inline-block;
+    margin-left: 0;
+    vertical-align: 0;
+    content: url("../img/toggle.svg");
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 0;
+    border-left: 0;
+}
+
 
 /* Слайдер */
 .slider {
