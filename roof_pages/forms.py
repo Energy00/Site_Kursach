@@ -6,13 +6,11 @@ from phonenumber_field.formfields import PhoneNumberField
 class FastUserForm(forms.ModelForm):
     field_order = ['name', 'phone_number']
 
-    phone_number = PhoneNumberField(label=' ',
-                                    strip=False,
-                                    widget=forms.TextInput(attrs={'placeholder': 'Телефон'}),
+    phone_number = PhoneNumberField(strip=False,
+                                    widget=forms.TextInput(attrs={'placeholder': 'Ваш номер телефона'}),
                                     region='RU')
-    name = forms.CharField(label=' ',
-                           strip=False,
-                           widget=forms.TextInput(attrs={'placeholder': 'Имя'}))
+    name = forms.CharField(strip=False,
+                           widget=forms.TextInput(attrs={'placeholder': 'Ваше имя'}))
 
     class Meta:
         model = Fast_formUser

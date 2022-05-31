@@ -10,13 +10,13 @@ from roof_order.models import *
 class start_page(View):
     def get(self, request):
         form = FastUserForm()
-        return render(request, 'roof_pages/start_page.html', context= {'form': form})
+        return render(request, 'roof_pages/start_page.html', context={'form': form})
 
     def post(self, request):
         form = FastUserForm(request.POST)
         if form.is_valid():
             form.save(commit=True)
-            redirect('home')
+            return redirect('home')
         else:
             return render(request, 'roof_pages/start_page.html', context={'form': form})
 

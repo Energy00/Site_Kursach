@@ -6,17 +6,39 @@
 
 {% block content %}
     <div class="container-fluid something_all">
-        <div class="row">
-            <div class="col col-md-7 col-sm-12">
+        <div class="row title">
+            <div class="col col-lg-1"></div>
+            <div class="col col-lg-5">
                 <h1 class="h1_title">Поставим крышу <br>по вашему заказу</h1>
                 <p class="p_title">Предлагаем материал на ваш выбор</p>
-            </div>
-            <div class="col col-md-7 col-sm-12">
                 <a class="btn" href="{% url 'about' %}">ПОДРОБНЕЕ <img
-                                    src="{% static 'img/arrow_for.svg' %}" alt="">
+                        src="{% static 'img/arrow_for.svg' %}" alt="">
                 </a>
             </div>
+            <div class="col col-lg-5">
+                <div class="container fast-form">
+                    <p>Заполните короткую форму,<br> чтобы мы вам позвонили</p>
+                    <form action="{% url 'home' %}" method="post" novalidate>
+                        {% csrf_token %}
+                        <label class="icon">
+                            <i class="icon-user"></i>
+                            {{ form.name }}
+                        </label>
+                        <label class="icon">
+                            <i class="icon-phone"></i>
+                            {{ form.phone_number }}
+                        </label>
+                        <button type="submit">Оставить заказ</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col col-lg-1"></div>
         </div>
+{#        <div class="row">#}
+{#            <div class="col col-lg-1"></div>#}
+{#            <div class="col col-lg-7">#}
+{#            </div>#}
+{#        </div>#}
     </div>
 
 {% endblock %}
