@@ -37,3 +37,7 @@ class profile_page(View):
         # print(json_order)
 
         return render(request, 'roof_pages/profile_page.html', context=context)
+
+
+def material_page(request):
+    return render(request, 'roof_pages/material_page.html')

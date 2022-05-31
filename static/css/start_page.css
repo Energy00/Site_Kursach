@@ -2,3 +2,47 @@ body{
     background: url("../img/background1.png") no-repeat;
     background-size: 100%;
 }
+
+.something_all {
+    background-color: rgba(30, 30, 30, .7);
+    height: auto;
+    top: 0;
+    left: 0;
+}
+
+.h1_title {
+    color: #ffffff;
+    font-family: 'Roboto Light';
+    font-style: normal;
+    font-size: 60px;
+    margin-top: 22%;
+    margin-left: 23%;
+    line-height: 120%;
+}
+
+.p_title {
+    color: rgb(243,204,0);
+    font-size: 25px;
+    font-family: 'Roboto Light';
+    font-style: normal;
+    margin-left: 24%;
+}
+
+.something_all .btn {
+    border-radius: 12px;
+    background-color: rgba(244, 244, 244, 0.5);
+    margin-left: 23%;
+    margin-top: 5%;
+    color: #000000;
+    font-family: 'Inter', ui-serif;
+    font-style: normal;
+    font-size: 15px;
+    padding: 1.5% 4%;
+}
+
+.something_all .btn img{
+    padding-bottom: 3%;
+    padding-left: 2%;
+    max-width: 9px;
+    width: 100%;
+}

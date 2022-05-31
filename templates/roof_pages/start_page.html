@@ -5,17 +5,19 @@
 {% endblock %}
 
 {% block content %}
-{#    <div class="form_container">#}
-{#        <p>Мы вам позвоним!</p>#}
-{#        <img src="{% static 'img/Face.JPG' %}" alt="">#}
-{#        <form method="POST" action = "{% url 'home' %}">#}
-{#            <p>Форма заказа</p>#}
-{#            {% for fields in form %}#}
-{#                {{ fields }}#}
-{#            {% endfor %}#}
-{#            <button>Оставить заказ</button>#}
-{#        </form>#}
-{#    </div>#}
+    <div class="container-fluid something_all">
+        <div class="row">
+            <div class="col col-md-7 col-sm-12">
+                <h1 class="h1_title">Поставим крышу <br>по вашему заказу</h1>
+                <p class="p_title">Предлагаем материал на ваш выбор</p>
+            </div>
+            <div class="col col-md-7 col-sm-12">
+                <a class="btn" href="{% url 'about' %}">ПОДРОБНЕЕ <img
+                                    src="{% static 'img/arrow_for.svg' %}" alt="">
+                </a>
+            </div>
+        </div>
+    </div>
 
 {% endblock %}
 
