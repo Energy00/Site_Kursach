@@ -9,3 +9,22 @@ body{
     top: 0;
     left: 0;
 }
+
+.title_order {
+    padding-top: 5%;
+}
+
+.title_order h1 {
+    color: #ffffff;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 300;
+    margin-left: 5%;
+    font-size: 45px;
+}
+
+.table_cont {
+    margin-left: 5%;
+    background-color: rgba(244, 244, 244, 0.7);
+    height: 500px;
+}

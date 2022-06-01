@@ -14,12 +14,11 @@ body{
     padding-top: 6%;
 }
 
-.h1_title2 {
+.title_about h1 {
     color: #ffffff;
     font-family: 'Roboto Light';
     font-style: normal;
     font-size: 40px;
-
 }
 
 .container-about{

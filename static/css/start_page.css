@@ -3,10 +3,6 @@ body{
     background-size: 100%;
 }
 
-.title{
-    padding-top: 30px;
-}
-
 .start_cont {
     background-color: rgba(30, 30, 30, .7);
     height: 100vh;
@@ -14,7 +10,11 @@ body{
     left: 0;
 }
 
-.h1_title {
+.title{
+    padding-top: 4%;
+}
+
+.title h1 {
     color: #ffffff;
     font-family: 'Roboto Light';
     font-style: normal;
