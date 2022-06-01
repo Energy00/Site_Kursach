@@ -1,0 +1,61 @@
+body{
+    background: url("../img/background2.png") no-repeat;
+    background-size: 100%;
+}
+
+.about_cont {
+    background-color: rgba(30, 30, 30, .7);
+    height: 100vh;
+    top: 0;
+    left: 0;
+}
+
+.title_about{
+    padding-top: 6%;
+}
+
+.h1_title2 {
+    color: #ffffff;
+    font-family: 'Roboto Light';
+    font-style: normal;
+    font-size: 40px;
+
+}
+
+.container-about{
+    padding-top: 20%;
+    position: relative;
+    max-width: 350px;
+    height: auto;
+}
+
+.photos {
+    max-width: 100%;
+    width: auto;
+    background-color: rgb(246, 246, 246);
+    padding-bottom: 27%;
+    border-radius: 20px;
+}
+
+.photos-title{
+    position:absolute;
+    top: 77%;
+    left: 5%;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: calc(12px + 7 * (100vw/1280));
+    color: #674400;
+}
+
+.photos-text{
+    position: absolute;
+    top: 87%;
+    left: 5%;
+    right: 8%;
+    font-size: calc(8px + 4 * (100vw/1280));
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 300;
+}
+

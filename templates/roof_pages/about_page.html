@@ -2,61 +2,43 @@
 {% load static %}
 
 {% block styles %}
-    <link href="{% static 'css/about_page.css' %}">
+    <link href="{% static 'css/about_page.css' %}" rel="stylesheet">
 {% endblock %}
 
 {% block content %}
-    <div class="container">
-        <h1>
-            Рады приветствовать вас на сайте EzRoof!
-        </h1>
-        <p>
-            Мы находимся в г.Красноярск. Наша задача - исполнить желание каждого клиента в приобретении качественного
-            продукта, который будет служить ему долгое время.
-        </p>
-        <p>
-            Для нас важен любой заказ! Поэтому будем рады помочь вам при возникновении любых вопросов.
-        </p>
-        <p>
-            Если что-то пойдет не так - мы разберемся за вас.
-        </p>
-    </div>
-    <div class="container_about">
-        <h2 class="benefits__title">
-            Наши преимушества
-        </h2>
-        <div class="row benefits ">
-            <div class="col-md-1">
-                <img src="{% static 'img/premium-icon-quality-control-5430584.png' %}" alt="" class="benefits__img">
+    <div class="container-fluid about_cont">
+        <div class="row title_about">
+            <div class="col col-md-1 col-lg-1"></div>
+             <div class="col col-md-11 col-lg-11"><h1 class="h1_title2">Почему стоит выбрать именно нас?</h1></div>
+        </div>
+        <div class="row abouts">
+            <div class="col col-md-1 col-lg-1"></div>
+            <div class="col col-md-3 col-lg-3">
+                <div class="container-about">
+                    <img src="{% static 'img/kachestvo.png' %}" alt="1" class="photos">
+                    <div class="photos-title">Качество</div>
+                    <div class="photos-text">Производство продукции тщательно отслеживается и контролируется</div>
+                </div>
             </div>
-            <div class="col-md-3">
-                <h3>Качество</h3>
-                <p class="">
-                    Производство продукции тщательно отслеживается и контролируется.
-                </p>
+            <div class="col col-md-3 col-lg-3">
+                <div class="container-about">
+                    <img src="{% static 'img/personal.png' %}" alt="1" class="photos">
+                    <div class="photos-title">Опытный персонал</div>
+                    <div class="photos-text">Каждый сотрудник проходит профессиональное обучение</div>
+                </div>
             </div>
-            <div class="col-md-1">
-                <img src="{% static 'img/premium-icon-training-3496049.png' %}" alt="" class="benefits__img">
+            <div class="col col-md-3 col-lg-3">
+                <div class="container-about">
+                    <img src="{% static 'img/garant.png' %}" alt="1" class="photos">
+                    <div class="photos-title">Гарантия</div>
+                    <div class="photos-text">Предоставляем официальную гарантию по договору от 3 до 5 лет</div>
+                </div>
             </div>
-            <div class="col-md-3">
-                <h3>
-                    Опытный персонал
-                </h3>
-                <p>
-                    Каждый сотрудник проходит обучение и только после допускается к работе.
-                </p>
-            </div>
-            <div class="col-md-1">
-                <img src="{% static 'img/free-icon-contract-2666523.png' %}" alt="" class="benefits__img">
-            </div>
-            <div class="col-md-3">
-                <h3>
-                    Гарантия
-                </h3>
-                <p>
-                    Предоставляю официальную гарантию по договору от 3 до 5 лет!
-                </p>
-            </div>
+            <div class="col col-md-2 col-lg-2"></div>
         </div>
     </div>
+
+
+    </div>
+
 {% endblock %}
