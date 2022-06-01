@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block content %}
-    <div class="row p-1">
-        <div class="col-md-12 p-3" style="display: flex; justify-content: center;">
-            <div class="red box" style="width: 100px; height: 100px; background: red; margin-right: 20px;"></div>
-            <div class="blue box" style="width: 100px; height: 100px; background: blue; margin-left: 20px;"></div>
-        </div>
-    </div>
 
-    <script src="{% static "js/for_lab.js" %}"></script>
+{% block styles %}
+    <link href="{% static 'css/material_page.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid material_cont">
+
+    </div>
 {% endblock %}

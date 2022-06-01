@@ -1,10 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load cache %}
 
 {% block styles %}
     <link href="{% static 'css/start_page.css' %}" rel="stylesheet">
 {% endblock %}
 
+{% cache 3600 body %}
 {% block content %}
     <div class="container-fluid start_cont">
         <div class="row title">
@@ -38,25 +40,5 @@
     </div>
 
 {% endblock %}
+{% endcache %}
 
-
-{#    <p style="font-weight: bold; font-size: 33px; margin-top: 25px" align="center">Наши работы</p>#}
-{#    <div class="slider_container">#}
-{#        <div class="slider">#}
-{#            <div class="slider_item">#}
-{#                <img src="{% static 'img/some_photos/1.jpg'%}" alt=''>#}
-{#            </div>#}
-{#            <div class="slider_item">#}
-{#                <img src="{% static 'img/some_photos/9.jpg'%}" alt=''>#}
-{#            </div>#}
-{#            <div class="slider_item">#}
-{#                <img src="{% static 'img/some_photos/19.jpg'%}" alt=''>#}
-{#            </div>#}
-{#            <div class="slider_item">#}
-{#                <img src="{% static 'img/some_photos/24.jpg'%}" alt=''>#}
-{#            </div>#}
-{#            <div class="slider_item">#}
-{#                <img src="{% static 'img/some_photos/111.jpg'%}" alt=''>#}
-{#            </div>#}
-{#        </div>#}
-{#    </div>#}

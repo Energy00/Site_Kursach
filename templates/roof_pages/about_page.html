@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load cache %}
 
 {% block styles %}
     <link href="{% static 'css/about_page.css' %}" rel="stylesheet">
@@ -21,11 +22,13 @@
                 </div>
             </div>
             <div class="col col-md-3 col-lg-3">
+                {% cache 3600 container-about %}
                 <div class="container-about">
                     <img src="{% static 'img/personal.png' %}" alt="1" class="photos">
                     <div class="photos-title">Опытный персонал</div>
                     <div class="photos-text">Каждый сотрудник проходит профессиональное обучение</div>
                 </div>
+                {% endcache %}
             </div>
             <div class="col col-md-3 col-lg-3">
                 <div class="container-about">
@@ -36,9 +39,6 @@
             </div>
             <div class="col col-md-2 col-lg-2"></div>
         </div>
-    </div>
-
-
     </div>
 
 {% endblock %}
