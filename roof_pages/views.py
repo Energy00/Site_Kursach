@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
 from django.views.generic import View
 from django.contrib.auth import login, authenticate, logout
@@ -25,7 +26,9 @@ def about_page(request):
     return render(request, 'roof_pages/about_page.html')
 
 
-class profile_page(View):
+class profile_page(LoginRequiredMixin, View):
+    login_url = 'home'
+
     def get(self, request):
         user = request.user
         orders = order.objects.filter(user=user.id)

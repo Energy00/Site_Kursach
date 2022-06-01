@@ -1,23 +1,12 @@
 {% extends 'base.html' %}
+{% load static %}
 
+{% block styles %}
+    <link href="{% static 'css/profile_page.css' %}" rel="stylesheet">
+{% endblock %}
 
 {% block content %}
-    {% if user.is_authenticated %}
-        <h1 align="center">Ваши заказы</h1>
-        <table border="1" width="50%" border-width="thin" align="center">
-            <tr><th>Размер</th><th>Адрес</th><th>Материал</th><th>Фото объекта</th></tr>
-            {% for order in orders %}
-                <tr>
-                    <td align="center">{{ order.size }}</td>
-                    <td align="center">{{ order.address }}</td>
-                    <td align="center">{{ order.materials }}</td>
-                    {% if order.photo_roof %}
-                        <td align="center" width="25%"><img src="{{ order.photo_roof.url }}" alt="Фото товара" height="160"></td>
-                    {% endif %}
-                </tr>
-            {% endfor %}
-        </table>
-    {% else %}
-        <a class="text" href="{% url 'login' %}">Вход</a>
-    {% endif %}
+    <div class="container-fluid profile_cont">
+
+    </div>
 {% endblock %}

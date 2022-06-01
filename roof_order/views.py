@@ -1,9 +1,12 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
 from django.views import View
 from .forms import *
 
 
-class OrderView(View):
+class OrderView(LoginRequiredMixin, View):
+    login_url = 'home'
+
     def get(self, request):
         form = OrderForm()
         return render(request, 'roof_order/order.html', context={'form': form})

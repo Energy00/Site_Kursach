@@ -1,0 +1,11 @@
+body{
+    background: url("../img/background2.png") no-repeat;
+    background-size: 100%;
+}
+
+.profile_cont {
+    background-color: rgba(30, 30, 30, .7);
+    height: 100vh;
+    top: 0;
+    left: 0;
+}
