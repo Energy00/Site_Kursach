@@ -85,6 +85,10 @@ body{
     height: 50px;
 }
 
+.fast-form form input:focus{
+    outline: none;
+}
+
 .fast-form form button{
     margin-top: 12%;
     border-radius: 7px;
@@ -118,8 +122,4 @@ body{
     max-width: 17px;
     top: 23%;
     left: 2%;
-}
-
-.icon input:focus{
-    outline: none;
 }

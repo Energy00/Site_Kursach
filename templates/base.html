@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link href="{% static 'css/popup.css' %}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat+Alternates&family=Tapestry&display=swap" rel="stylesheet">
-    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+    <link href="{% static 'css/base.css' %}" rel="stylesheet">
     {% block styles %} {% endblock%}
     <title>Кровля крыш </title>
 </head>
@@ -56,8 +56,7 @@
                         </ul>
                         </ul>
                     </ul>
-                    </li>
-                </ul>
+                    </ul>
             </div>
         </div>
     </nav>
@@ -74,13 +73,31 @@
                 <a href="{% url 'home' %}" class="popup_close close-popup">&#10006</a>
                 <form method = "post" action="{% url 'register' %}" id="form-reg" novalidate>
                     {% csrf_token %}
-                    {{ reg_form.as_p }}
-                    {{ phone_form.as_p }}
-                    <tr>
-                        <td colspan="1">
-                            <button type="submit" class="popup_button">Зарегистрироваться</button>
-                        </td>
-                    </tr>
+                    <label class="popup-icon">
+                        <i class="popup-icon-email"></i>
+                        {{ reg_form.email }}
+                    </label>
+                    <br>
+                    <label class="popup-icon">
+                        <i class="popup-icon-password"></i>
+                        {{ reg_form.password1 }}
+                    </label>
+                    <br>
+                    <label class="popup-icon">
+                        <i class="popup-icon-password"></i>
+                        {{ reg_form.password2 }}
+                    </label>
+                    <br>
+                    <label class="popup-icon">
+                        <i class="popup-icon-user"></i>
+                        {{ reg_form.username }}
+                    </label>
+                    <br>
+                    <label class="popup-icon">
+                        <i class="popup-icon-phone"></i>
+                        {{ phone_form.phone_number }}
+                    </label>
+                    <button type="submit" class="popup_button">Зарегистрироваться</button>
                 </form>
                 <div class="Sing_text">У вас уже имеется аккаунт? <a class="popup-link" id='#login' href="#">Войти</a></div>
             </div>
@@ -94,33 +111,26 @@
                 <form method = "post" action="{% url 'login' %}" id="form-login" novalidate>
                     <div class="alert alert-danger d-none" role="alert"></div>
                     {% csrf_token %}
-                    {{ log_form.as_p }}
-                    <tr>
-                        <td colspan="1">
-                            <button type="submit" class="popup_button">Войти</button>
-                        </td>
-                    </tr>
+                    <label class="popup-icon">
+                        <i class="popup-icon-email"></i>
+                        {{ log_form.username_log }}
+                    </label>
+                    <br>
+                    <label class="popup-icon">
+                        <i class="popup-icon-password"></i>
+                        {{ log_form.password_log }}
+                    </label>
+                    <button type="submit" class="popup_button">Войти</button>
+                    <div class="Sing_text">У вас нет своего аккаунта? <a class="popup-link" id='#register' href="#">Зарегистрироваться</a></div>
                 </form>
-                <div class="Sing_text">У вас нет своего аккаунта?<a class="popup-link" id='#register' href="#">Зарегистрироваться</a></div>
             </div>
         </div>
     </div>
 
-{#    <div class="container">#}
-{#        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">#}
-{#            <div class="col-md-4 d-flex align-items-center">#}
-{#                <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">#}
-{#                    <img src="{% static 'img/logo.svg' %}" width="30px" alt="logo">#}
-{#                </a>#}
-{#                <span class="mb-3 mb-md-0 text-muted">© 2022 EzRoof, Inc</span>#}
-{#            </div>#}
-{#        </footer>#}
-{#    </div>#}
 
-    <script src="{% static 'js/slick.min.js' %}"></script>
     <script src="{% static 'js/functions.js' %}"></script>
     <script src="{% static 'js/main.js' %}"></script>
-    <script src = "{% static 'js/java.js' %}"></script>
+    <script src = "{% static 'js/popup.js' %}"></script>
 </body>
 </html>
 

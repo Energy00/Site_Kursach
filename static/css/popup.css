@@ -1,21 +1,23 @@
 .popup_button {
-    cursor: pointer;
     display: block;
     width: 300px;
-    margin: 30px auto 10px auto;
-    padding: 20px 0;
-    font-weight: 500;
-    font-size: 16px;
-    color: black;
-    border-radius: 10px;
-    background-color: orange;
+    margin: 15px auto 15px auto;
+    padding: 11px 0;
+    font-family: 'Inter';
+    font-style: normal;
+    font-size: 20px;
+    font-weight: 300;
+    color: #000000;
+    border-radius: 7px;
+    border: none;
+    background-color: #F3CC00;
 }
 
 .popup {
     position: fixed;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, .6);
+    background-color: rgba(0, 0, 0, .5);
     top: 0;
     left: 0;
     opacity: 0;
@@ -36,32 +38,42 @@
 }
 
 .popup_content {
-    background-color: #fff;
+    background-color: #F4F4F4;
     color: #000;
     max-width: 800px;
-    padding: 30px;
+    padding: 25px;
     position: relative;
     border-radius: 15px;
 }
 
 .pop {
     font-size: 25px;
-    font-weight: 500;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
     text-align: center;
+    margin: 10px 0;
 }
 
 .popup_content form {
     float:left;
     margin: 10px auto 0 auto;
     font-size: 15px;
-    font-family: "Trebuchet MS", sans-serif;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
 }
 
 .popup_content form input{
-    margin: 0 auto 0 10px;
-    width: 200px;
+    margin-bottom: 3%;
+    margin-right: 15px;
+    margin-left: 15px;
+    width: 300px;
     float: right;
-    border-radius: 7px;
+    border-radius: 15px;
+    border: 1px solid #9A9A9A;
+    height: 40px;
+    padding-left: 14%;
 }
 
 .popup_content form input:focus{
@@ -78,6 +90,49 @@
 }
 
 .Sing_text {
-    font-weight: 500;
     text-align: center;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 15px;
+}
+
+.Sing_text a{
+    color: #1A869E;
+    font-size: 14px;
+}
+
+.popup-icon{
+    position: relative;
+}
+.popup-icon i{
+    position: absolute;
+}
+
+.popup-icon-email{
+    content:url("../img/email.svg");
+    max-width: 17px;
+    top: 24%;
+    left: 10%;
+}
+
+.popup-icon-password {
+    content:url("../img/password.svg");
+    max-width: 17px;
+    top: 22%;
+    left: 10%;
+}
+
+.popup-icon-user {
+    content:url("../img/user.svg");
+    max-width: 17px;
+    top: 22%;
+    left: 10%;
+}
+
+.popup-icon-phone {
+    content:url("../img/phone.svg");
+    max-width: 17px;
+    top: 22%;
+    left: 10%;
 }

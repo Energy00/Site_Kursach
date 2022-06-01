@@ -1,18 +1,57 @@
 {% extends 'base.html' %}
+{% load static %}
 
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/order.css' %}">
+{% endblock %}
 
 {% block content %}
-    <div class = 'container_roof_form'>
-        <h2>Форма заказа</h2>
-        <form method = "post" action = "{% url 'order' %}" enctype="multipart/form-data" class="form_order">
-            {% csrf_token %}
-
-            {{ form.as_p}}
-            <tr>
-                <td colspan="1">
-                    <button type="submit">Сделать заказ</button>
-                </td>
-            </tr>
-        </form>
+    <div class="container-fluid order_cont">
+        <div class="row content-item">
+            <div class="col-md-6 offset-md-3 content text-center">
+                <p class="content__title">
+                    Форма заказа
+                </p>
+                <form action="{% url 'order' %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row input">
+                        <div class="col-md-10 offset-md-1 text-center">
+                            {{ order_form.size }}
+                        </div>
+                    </div>
+                    <div class="row input">
+                        <div class="col-md-10 offset-md-1 text-center">
+                            {{ order_form.address }}
+                        </div>
+                    </div>
+                    <div class="row input">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-6 text-start material">
+                            <div class=""><label class="title-check">{{ order_form.materials.label }}</label></div>
+                            {% for field in order_form.materials %}
+                                <div class="check__item">
+                                    <label class="form-check-label" for="{{ field.id_for_label }}">
+                                        <input class="form-check-input" value="{{ forloop.counter }}" type="radio" name="materials" id="{{ field.id_for_label }}">
+                                        {{ field.choice_label }}
+                                    </label>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <div class="col-md-1"></div>
+                        <div class="col-md-3 photo text-center">
+                            <img class="img__item" src="{% static 'img/photo.png' %}" alt="photo">
+                            {{ order_form.photo_roof }}
+                            <label for="id_photo_roof" class="btn btn-secondary align-items-center text-center">Выберите фото</label>
+                        </div>
+                        <div class="col-md-1"></div>
+                    </div>
+                    <div class="row button">
+                        <div class="col-md-10 offset-md-1 text-center">
+                            <button type="submit" class="btn btn__btn align-items-center text-center">Оставить заказ</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 {% endblock %}

@@ -9,10 +9,10 @@ class OrderView(LoginRequiredMixin, View):
 
     def get(self, request):
         form = OrderForm()
-        return render(request, 'roof_order/order.html', context={'form': form})
+        return render(request, 'roof_order/order.html', context={'order_form': form})
 
     def post(self, request):
-        print(request.POST['materials'])
+        print(request.POST)
         form = OrderForm(request.POST, request.FILES)
         if form.is_valid():
             materials_id = request.POST['materials']
@@ -24,6 +24,6 @@ class OrderView(LoginRequiredMixin, View):
             order_form.save()
             return redirect('profile')
         else:
-            return render(request, 'roof_order/order.html', context={'form': form})
+            return render(request, 'roof_order/order.html', context={'order_form': form})
 
 
