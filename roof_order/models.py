@@ -8,9 +8,7 @@ class materials(models.Model):
     name = models.CharField(max_length=40, null=False)
     photo = models.ImageField(upload_to='img/materials_photo/', null=False)
     price = models.IntegerField(null=False)
-
-    def __str__(self):
-        return self.name
+    description = models.TextField()
 
 
 class order(models.Model):
