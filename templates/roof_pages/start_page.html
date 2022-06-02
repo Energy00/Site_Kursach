@@ -6,19 +6,17 @@
     <link href="{% static 'css/start_page.css' %}" rel="stylesheet">
 {% endblock %}
 
-{% cache 3600 body %}
 {% block content %}
     <div class="container-fluid start_cont">
         <div class="row title">
-            <div class="col col-lg-1"></div>
-            <div class="col col-lg-5 col-md-6">
+            <div class="col col-lg-5 col-md-6 offset-lg-1 offset-md-0">
                 <h1>Кровля крыши <br>по вашему заказу</h1>
                 <p class="p_title">Предлагаем материал на ваш выбор</p>
                 <a class="btn" href="{% url 'about' %}">ПОДРОБНЕЕ <img
                         src="{% static 'img/arrow_for.svg' %}" alt="">
                 </a>
             </div>
-            <div class="col col-lg-5">
+            <div class="col col-lg-5 col-md-6">
                 <div class="container fast-form">
                     <p>Заполните короткую форму,<br> чтобы мы вам позвонили</p>
                     <form action="{% url 'home' %}" method="post" novalidate>
@@ -35,10 +33,8 @@
                     </form>
                 </div>
             </div>
-            <div class="col col-lg-1"></div>
         </div>
     </div>
 
 {% endblock %}
-{% endcache %}
 

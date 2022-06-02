@@ -9,35 +9,33 @@
 {% block content %}
     <div class="container-fluid about_cont">
         <div class="row title_about">
-            <div class="col col-md-1 col-lg-1"></div>
-             <div class="col col-md-11 col-lg-11"><h1>Почему стоит выбрать именно нас?</h1></div>
+             <div class="col col-md-11 offset-md-1 "><h1>Почему стоит выбрать именно нас?</h1></div>
         </div>
         <div class="row">
-            <div class="col col-md-1 col-lg-1"></div>
-            <div class="col col-md-3 col-lg-3">
+            {% cache 3600 container-about %}
+            <div class="col col-md-3 offset-md-1">
                 <div class="container-about">
                     <img src="{% static 'img/kachestvo.png' %}" alt="1" class="photos">
                     <div class="photos-title">Качество</div>
                     <div class="photos-text">Производство продукции тщательно отслеживается и контролируется</div>
                 </div>
             </div>
-            <div class="col col-md-3 col-lg-3">
-                {% cache 3600 container-about %}
+            <div class="col col-md-3">
                 <div class="container-about">
                     <img src="{% static 'img/personal.png' %}" alt="1" class="photos">
                     <div class="photos-title">Опытный персонал</div>
                     <div class="photos-text">Каждый сотрудник проходит профессиональное обучение</div>
                 </div>
-                {% endcache %}
+
             </div>
-            <div class="col col-md-3 col-lg-3">
+            <div class="col col-md-3">
                 <div class="container-about">
                     <img src="{% static 'img/garant.png' %}" alt="1" class="photos">
                     <div class="photos-title">Гарантия</div>
                     <div class="photos-text">Предоставляем официальную гарантию по договору от 3 до 5 лет</div>
                 </div>
             </div>
-            <div class="col col-md-2 col-lg-2"></div>
+            {% endcache %}
         </div>
     </div>
 

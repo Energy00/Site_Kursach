@@ -10,3 +10,27 @@ body{
     top: 0;
     left: 0;
 }
+
+.content-material {
+    background: rgba(244, 244, 244, 0.7);
+    border-radius: 20px;
+    margin-top: 50px;
+}
+
+.content-material img {
+    height: 150px;
+    margin: 10px 0;
+    border-radius: 10px ;
+}
+
+.content-material p {
+    text-align: center;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.content-material .text_desc {
+    text-align: left;
+}
