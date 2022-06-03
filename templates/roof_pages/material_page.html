@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load cache %}
 
 {% block styles %}
     <link href="{% static 'css/material_page.css' %}" rel="stylesheet">
@@ -7,6 +8,7 @@
 
 {% block content %}
     <div class="container-fluid material_cont">
+        {% cache 3600 for %}
         {% for i in materials %}
         <div class="row">
             <div class="col-md-8 offset-md-2 content-material">
@@ -28,5 +30,6 @@
             </div>
         </div>
         {% endfor %}
+        {% endcache %}
     </div>
 {% endblock %}
